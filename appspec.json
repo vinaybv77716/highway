@@ -1,0 +1,17 @@
+{
+  "version": 0.0,
+  "Resources": [
+    {
+      "TargetService": {
+        "Type": "AWS::ECS::Service",
+        "Properties": {
+          "TaskDefinition": "arn:aws:ecs:us-east-1:920207782794:task-definition/vinay-highway-TD:latest",
+          "LoadBalancerInfo": {
+            "ContainerName": "highway",
+            "ContainerPort": 80
+          }
+        }
+      }
+    }
+  ]
+}
