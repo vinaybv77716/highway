@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:latest
+        image: bvvinay/highway:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
 
