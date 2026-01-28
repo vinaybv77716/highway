@@ -1,11 +1,11 @@
-name: ECR Login Test (OIDC)
+name: OIDC Test – ECR Login
 
 on:
   push:
     branches: [ main ]
 
 permissions:
-  id-token: write     # REQUIRED for OIDC
+  id-token: write
   contents: read
 
 env:
@@ -13,7 +13,7 @@ env:
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
 
 jobs:
-  ecr-login:
+  test-oidc:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +26,6 @@ jobs:
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-oidc
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
-      # (Optional but HIGHLY recommended for debugging)
       - name: Verify AWS identity
         run: aws sts get-caller-identity
 
